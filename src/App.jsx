@@ -1,40 +1,12 @@
-import { myData, EXAMPLES } from "../data.js";
 import Header from "./components/Header/Header.jsx";
-import MainContent from "./components/MainContent/MainContent.jsx";
-import TabButton from './components/TabButton.jsx';
-import { useState } from 'react';
-import Section from "./components/Section/Section.jsx";
+import MainContents from "./components/MainContent/MainContents.jsx";
+import MainButtons from "./components/MainContent/MainButtons.jsx";
+import ExampleHomeW from "./components/MainContent/ExampleHomeW.jsx";
+import Two_WayBinding from "./components/MainContent/Two_WayBinding.jsx";
 
 function App() {
 
-  //* Nội dung chính
-  const [selectedTopic, setSelectedTopic] = useState("components");
-  function handleSelect(selectedButton){
-    setSelectedTopic(selectedButton);
-  }
 
-  //* Confirm Activation BOX
-  const [isActivated, setIsActivated] = useState(false);
-  const [isAlertVisible, setIsAlertVisible] = useState(false);
-  function handleActivate(){
-    setIsAlertVisible(true);
-  }
-
-  function handleConfirm(){
-    setIsActivated(true);
-    setIsAlertVisible(false);
-  }
-
-  function handleCancel(){
-    setIsActivated(false);
-    setIsAlertVisible(false);
-  }
-
-  //* BT Button Click
-  const [isActive, setIsActive] = useState(false);
-  function handleToggle(){
-    setIsActive((prev) => !prev);
-  }
 
   
   // const [sTopic, setSTopic] = useState("Chào bạn!");
@@ -64,101 +36,10 @@ function App() {
     <>
       <Header />
       <main>
-        <section id="core-concepts">
-        <h2>Khái niệm chính trong React</h2>
-        <ul>
-          {/*<MainContent{...myData[0]}/>
-          <MainContent{...myData[1]}/>
-          <MainContent{...myData[2]}/>
-          <MainContent{...myData[3]}/>*/}
-          {myData.map((item) => (
-            <MainContent key={item.title} {...item} />
-          ))}
-        </ul>
-        </section>
-
-        <Section title="Ví dụ về React" id="examples">
-          <menu>
-            <TabButton isSelected={selectedTopic==="components"} onClick={() => {handleSelect('components')}}>Components</TabButton>
-            <TabButton isSelected={selectedTopic==="jsx"} onClick={() => {handleSelect('jsx')}}>JSX</TabButton>
-            <TabButton isSelected={selectedTopic==="state"} onClick={() => {handleSelect('state')}}>Props</TabButton>
-            <TabButton isSelected={selectedTopic==="props"} onClick={() => {handleSelect('props')}}>Props</TabButton>
-          </menu>
-          <div id="tab-content">
-            <h3>{EXAMPLES[selectedTopic].title}</h3>
-            <p>{EXAMPLES[selectedTopic]["desc"]}</p>
-            <pre>
-              <code>
-                {EXAMPLES[selectedTopic]["code"]}
-              </code>
-            </pre>
-          </div>
-        </Section>
-          
-        <section  >
-          <div 
-            id="examples" 
-            style={{ 
-              display: 'flex',
-              justifyContent: 'center', // Căn giữa theo chiều ngang
-              alignItems: 'center',     // Căn giữa theo chiều dọc
-            }}
-          >
-            <menu style={{
-              padding: '2rem',
-              border: 'none', /* Loại bỏ border nếu có */
-              borderRadius: '12px', // Dùng camelCase cho borderRadius
-              backgroundColor: 'rgba(0, 0, 0, 0.4)', // Dùng camelCase cho backgroundColor
-              display: 'inline-block',
-              boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)', // Dùng camelCase cho boxShadow
-            }}>
-              {!isActivated && !isAlertVisible && (
-                <button onClick={handleActivate}>Actives</button>
-              )}
-              
-              {isAlertVisible && (
-                <div id="tab-content">
-                <h2>Warming!</h2>
-                <p>Are you sure you want to activate this mode?</p>
-                <button onClick={handleConfirm} className='confirm-btn' >Confirm</button>
-                <button onClick={handleCancel} className='cancel-btn' >Cancel</button>
-              </div>
-              )}
-
-              {isActivated && (
-                <h3 className='success-message'>Mode Activated</h3>
-              )}
-            </menu>
-          </div>
-        </section>
-
-        <section 
-          style={{ 
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center', 
-            color: '#ffffff',
-            textAlign: 'center',
-            overflow: 'hidden', 
-            minHeight: '30vh', // Kích thước nhỏ vừa đủ
-            width: '100%'     // Kích thước nhỏ vừa đủ
-          }}
-        >
-          <div 
-            style={{
-              padding: '2rem',
-              border: 'none', /* Loại bỏ border nếu có */
-              borderRadius: '12px', // Dùng camelCase cho borderRadius
-              backgroundColor: 'rgba(0, 0, 0, 0.4)', // Dùng camelCase cho backgroundColor
-              display: 'inline-block',
-              boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)', // Dùng camelCase cho boxShadow
-            }}
-          >
-            <p>BUTTON</p>
-            <p className={isActive? "actives" : undefined}>Click vào đây!!</p>
-            <button className='btn-toggle' onClick={handleToggle}>Toggle btn</button>
-          </div>
-        </section>
+        <MainContents></MainContents>
+        <MainButtons></MainButtons>
+        <ExampleHomeW></ExampleHomeW>
+        <Two_WayBinding></Two_WayBinding>
       </main>
     </>
   );
