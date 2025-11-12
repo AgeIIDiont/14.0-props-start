@@ -3,6 +3,7 @@ import Header from "./components/Header/Header.jsx";
 import MainContent from "./components/MainContent/MainContent.jsx";
 import TabButton from './components/TabButton.jsx';
 import { useState } from 'react';
+import Section from "./components/Section/Section.jsx";
 
 function App() {
 
@@ -76,13 +77,12 @@ function App() {
         </ul>
         </section>
 
-        <section id="examples">
-          <h2>Ví dụ về React</h2>
+        <Section title="Ví dụ về React" id="examples">
           <menu>
-            <TabButton isSelected={selectedTopic==="components"} onSelect={() => {handleSelect('components')}}>Components</TabButton>
-            <TabButton isSelected={selectedTopic==="jsx"} onSelect={() => {handleSelect('jsx')}}>JSX</TabButton>
-            <TabButton isSelected={selectedTopic==="state"} onSelect={() => {handleSelect('state')}}>Props</TabButton>
-            <TabButton isSelected={selectedTopic==="props"} onSelect={() => {handleSelect('props')}}>Props</TabButton>
+            <TabButton isSelected={selectedTopic==="components"} onClick={() => {handleSelect('components')}}>Components</TabButton>
+            <TabButton isSelected={selectedTopic==="jsx"} onClick={() => {handleSelect('jsx')}}>JSX</TabButton>
+            <TabButton isSelected={selectedTopic==="state"} onClick={() => {handleSelect('state')}}>Props</TabButton>
+            <TabButton isSelected={selectedTopic==="props"} onClick={() => {handleSelect('props')}}>Props</TabButton>
           </menu>
           <div id="tab-content">
             <h3>{EXAMPLES[selectedTopic].title}</h3>
@@ -93,7 +93,7 @@ function App() {
               </code>
             </pre>
           </div>
-        </section>
+        </Section>
           
         <section  >
           <div 
@@ -154,7 +154,7 @@ function App() {
               boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)', // Dùng camelCase cho boxShadow
             }}
           >
-            <P>BUTTON</P>
+            <p>BUTTON</p>
             <p className={isActive? "actives" : undefined}>Click vào đây!!</p>
             <button className='btn-toggle' onClick={handleToggle}>Toggle btn</button>
           </div>
