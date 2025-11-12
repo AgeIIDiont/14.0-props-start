@@ -40,6 +40,7 @@ function App() {
         <MainButtons></MainButtons>
         <ExampleHomeW></ExampleHomeW>
         <Two_WayBinding></Two_WayBinding>
+        <p>hello</p>
       </main>
     </>
   );
