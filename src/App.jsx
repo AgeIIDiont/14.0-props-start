@@ -154,7 +154,8 @@ function App() {
               boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)', // Dùng camelCase cho boxShadow
             }}
           >
-            <p>BUTTON</p>
+            <p>BUTTON</p
+            <h2>Tôi chỉ test thử</h2>
             <p className={isActive? "actives" : undefined}>Click vào đây!!</p>
             <button className='btn-toggle' onClick={handleToggle}>Toggle btn</button>
           </div>
