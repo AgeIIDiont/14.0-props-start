@@ -3,6 +3,7 @@ import MainContents from "./components/MainContent/MainContents.jsx";
 import MainButtons from "./components/MainContent/MainButtons.jsx";
 import ExampleHomeW from "./components/MainContent/ExampleHomeW.jsx";
 import Two_WayBinding from "./components/MainContent/Two_WayBinding.jsx";
+import Two_WayBinding2 from "./components/MainContent/Two_WayBinding2.jsx";
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
         <ExampleHomeW></ExampleHomeW>
         <Two_WayBinding></Two_WayBinding>
         <p>hello</p>
+        <Two_WayBinding2></Two_WayBinding2>
       </main>
     </>
   );
